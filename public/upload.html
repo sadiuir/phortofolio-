@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unggah Detail Proyek - Portofolio Sadi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/upload-style.css">
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <nav class="bg-slate-800 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-amber-400 font-['Orbitron']">Form Unggah Proyek</h1>
+            <a href="index.html" class="text-slate-300 hover:text-amber-400 transition duration-300">
+                <i class="fas fa-arrow-left mr-2"></i>Kembali ke Portofolio
+            </a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-8">
+        <div class="bg-slate-800 p-6 md:p-8 rounded-lg shadow-xl">
+            <h2 class="text-2xl md:text-3xl font-bold text-amber-400 font-['Orbitron'] mb-6">Tambah Proyek Baru</h2>
+            
+            <form id="projectUploadForm" class="space-y-6">
+                <div>
+                    <label for="projectId" class="block text-sm font-medium text-slate-300 mb-1">ID Proyek (otomatis jika dikosongkan)</label>
+                    <input type="text" id="projectId" name="projectId" class="form-input bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500">
+                    <p class="text-xs text-slate-400 mt-1">Contoh: proyek1, proyekAnalisisStruktur. Biarkan kosong untuk ID otomatis.</p>
+                </div>
+
+                <div>
+                    <label for="projectTitle" class="block text-sm font-medium text-slate-300 mb-1">Judul Proyek <span class="text-red-500">*</span></label>
+                    <input type="text" id="projectTitle" name="projectTitle" required class="form-input bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500">
+                </div>
+
+                <div>
+                    <label for="projectImage" class="block text-sm font-medium text-slate-300 mb-1">Gambar Proyek <span class="text-red-500">*</span></label>
+                    <input type="file" id="projectImage" name="projectImage" accept="image/*" required class="form-input-file bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500">
+                    <img id="imagePreview" src="#" alt="Pratinjau Gambar" class="mt-2 rounded-md max-h-48 hidden"/>
+                    <p class="text-xs text-slate-400 mt-1">Unggah gambar representatif untuk proyek ini.</p>
+                </div>
+                
+                <div>
+                    <label for="imagePath" class="block text-sm font-medium text-slate-300 mb-1">Path Gambar (untuk portofolio utama) <span class="text-red-500">*</span></label>
+                    <input type="text" id="imagePath" name="imagePath" placeholder="Contoh: images/nama-file-gambar.jpg" required class="form-input bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500">
+                    <p class="text-xs text-slate-400 mt-1">Masukkan path relatif ke gambar setelah Anda menyimpannya di folder 'images/' portofolio utama.</p>
+                </div>
+
+                <div>
+                    <label for="shortDescription" class="block text-sm font-medium text-slate-300 mb-1">Deskripsi Singkat <span class="text-red-500">*</span></label>
+                    <textarea id="shortDescription" name="shortDescription" rows="3" required class="form-textarea bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500"></textarea>
+                </div>
+
+                <div>
+                    <label for="longDescription" class="block text-sm font-medium text-slate-300 mb-1">Deskripsi Panjang <span class="text-red-500">*</span></label>
+                    <textarea id="longDescription" name="longDescription" rows="6" required class="form-textarea bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500"></textarea>
+                </div>
+
+                <div>
+                    <label for="projectTools" class="block text-sm font-medium text-slate-300 mb-1">Tools/Teknologi yang Digunakan (pisahkan dengan koma) <span class="text-red-500">*</span></label>
+                    <input type="text" id="projectTools" name="projectTools" placeholder="Contoh: AutoCAD, SAP2000, SNI 1726:2019" required class="form-input bg-slate-700 border-slate-600 text-slate-200 focus:ring-amber-500 focus:border-amber-500">
+                </div>
+
+                <div class="flex items-center justify-end space-x-4">
+                    <button type="button" id="clearFormButton" class="btn-secondary">Bersihkan Form</button>
+                    <button type="submit" class="btn-primary">Simpan Proyek</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="mt-12">
+            <h3 class="text-xl md:text-2xl font-bold text-amber-400 font-['Orbitron'] mb-6">Proyek Tersimpan (di Local Storage)</h3>
+            <div id="savedProjectsList" class="space-y-4">
+                <p class="text-slate-400">Belum ada proyek yang disimpan.</p>
+            </div>
+            <div class="mt-8 text-right">
+                <button id="exportDataButton" class="btn-primary">Ekspor Data Proyek (JSON)</button>
+                 <button id="clearAllDataButton" class="btn-danger ml-4">Hapus Semua Data Lokal</button>
+            </div>
+            <div id="exportOutputContainer" class="mt-4 hidden">
+                <label for="jsonOutput" class="block text-sm font-medium text-slate-300 mb-1">Data JSON (salin dan tempel ke array 'projects' di script.js portofolio utama):</label>
+                <textarea id="jsonOutput" rows="10" readonly class="form-textarea bg-slate-700 border-slate-600 text-slate-200 w-full text-xs"></textarea>
+                <button id="copyJsonButton" class="btn-secondary mt-2">Salin JSON</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-800 text-center py-6 mt-12">
+        <p class="text-slate-400 text-sm">&copy; <span id="currentYearUpload"></span> Halaman Unggah Portofolio Sadi</p>
+    </footer>
+
+    <script src="js/upload-script.js"></script>
+</body>
+</html>

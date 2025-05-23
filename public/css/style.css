@@ -1,0 +1,185 @@
+/* css/style.css */
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    scroll-behavior: smooth;
+    /* Kelas Tailwind bg-slate-900 dan text-slate-200 sudah diterapkan di body tag HTML */
+}
+
+.hero-bg {
+    /* Default background is black. Overlay will apply if you add a background image. */
+    background-color: #000000; /* Hitam solid */
+    /* Jika ingin menggunakan gambar untuk latar belakang hero:
+       1. Tempatkan gambar Anda di folder /images/ (misal: images/hero-background.jpg)
+       2. Uncomment baris di bawah dan ganti URL-nya.
+    */
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/hero-background.jpg'); */
+    background-size: cover;
+    background-position: center;
+}
+
+.section-title {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    /* Kelas Tailwind text-amber-400 sudah diterapkan pada elemen judul di HTML */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #F59E0B; /* Tailwind amber-500 */
+}
+
+/* Styles for Project Slideshow */
+#project-viewport {
+    overflow: hidden;
+    position: relative; 
+}
+
+#project-slider-inner {
+    display: flex;
+    /* Transition diatur oleh JavaScript untuk kontrol yang lebih baik (looping) */
+}
+
+.project-slide-card {
+    flex: 0 0 90%; /* Lebar kartu di mobile */
+    margin-right: 16px; 
+    box-sizing: border-box;
+    opacity: 0.7;
+    transform: scale(0.95);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    /* Kelas Tailwind bg-slate-800, rounded-lg, shadow-xl, overflow-hidden, p-0 sudah di JS */
+}
+
+@media (min-width: 768px) { /* md breakpoint Tailwind */
+    .project-slide-card {
+        flex-basis: 45%; /* Dua kartu terlihat di tablet */
+    }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint Tailwind */
+    .project-slide-card {
+        flex-basis: 30%; /* Tiga kartu terlihat di desktop */
+    }
+}
+
+.project-slide-card.is-active-slide { 
+    opacity: 1;
+    transform: scale(1);
+}
+
+.skill-item {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    /* Kelas Tailwind bg-slate-700, p-6, rounded-lg, shadow-md sudah di HTML */
+}
+
+.skill-item:hover {
+    background-color: #F59E0B; /* Tailwind amber-500 */
+    color: #1F2937; /* Tailwind gray-800 */
+}
+
+.contact-item a:hover i, 
+.contact-item a:hover span { /* Target ikon dan teks di dalam link kontak */
+    color: #F59E0B; /* Tailwind amber-500 */
+}
+
+/* Modal Styles */
+.modal {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    /* Kelas Tailwind untuk posisi, bg, flex, dll. sudah di HTML */
+}
+
+.modal-content {
+    transition: transform 0.3s ease;
+    /* Kelas Tailwind untuk bg, padding, rounded, shadow, dll. sudah di HTML */
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #2d3748; /* Tailwind gray-800 */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #F59E0B; /* Tailwind amber-500 */
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D97706; /* Tailwind amber-600 */
+}
+
+/* Button Styles (jika ingin kustomisasi lebih dari Tailwind) */
+.btn-primary {
+    /* Kelas Tailwind sudah cukup, tapi bisa ditambahkan di sini jika perlu override */
+    /* Contoh: background-color: #F59E0B; color: #1F2937; ... */
+}
+
+.btn-primary:hover {
+    /* Contoh: background-color: #D97706; ... */
+}
+
+.btn-secondary {
+    /* Contoh: background-color: #4A5568; color: white; ... */
+}
+
+.btn-secondary:hover {
+    /* Contoh: background-color: #2D3748; ... */
+}
+
+/* Slider Navigation Buttons */
+.slider-nav-button {
+    background-color: rgba(45, 55, 72, 0.7); /* bg-slate-700 dengan opacity */
+    color: #F59E0B; /* Tailwind amber-500 */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 10;
+    /* Kelas Tailwind untuk posisi absolut, transform sudah di HTML */
+}
+
+.slider-nav-button:hover {
+    background-color: rgba(245, 158, 11, 0.9); /* Tailwind amber-500 dengan opacity */
+    color: #1F2937; /* Tailwind gray-800 */
+}
+
+.slider-nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Clock Styles */
+#clockWIB {
+    font-family: 'Orbitron', sans-serif;
+    color: #F59E0B; /* Tailwind amber-400 */
+    font-size: 0.9rem; /* Sekitar 14px */
+    margin-left: 1.5rem; /* Memberi jarak dari item navigasi "Kontak" */
+    min-width: 115px;   /* Mencegah pergeseran item navigasi lain */
+    text-align: right;  /* Meratakan teks jam ke kanan dalam kontainernya */
+}
+
+@media (max-width: 767px) { /* Sembunyikan jam desktop di layar kecil (md breakpoint Tailwind) */
+    #clockWIB {
+        display: none; 
+    }
+}
+
+#clockWIBMobile {
+    font-family: 'Orbitron', sans-serif; /* Konsistensi font */
+    min-width: 115px; /* Opsional, untuk konsistensi jika panjang teks bervariasi */
+    /* Kelas Tailwind untuk warna, ukuran font, dan perataan sudah di HTML */
+}

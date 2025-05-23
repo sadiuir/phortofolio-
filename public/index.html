@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Muhammad Abdullah Hasyim Musadi - Teknik Sipil UIR 21</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-slate-900 text-slate-200">
+
+    <nav class="bg-slate-800/80 backdrop-blur-md shadow-lg fixed w-full z-50 top-0">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold text-amber-400 font-['Orbitron'] uppercase">SADI</a>
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="#hero" class="nav-link text-slate-200 hover:text-amber-400 transition duration-300">Beranda</a>
+                <a href="#proyek" class="nav-link text-slate-200 hover:text-amber-400 transition duration-300">Proyek</a>
+                <a href="#keahlian" class="nav-link text-slate-200 hover:text-amber-400 transition duration-300">Keahlian</a>
+                <a href="#kontak" class="nav-link text-slate-200 hover:text-amber-400 transition duration-300">Kontak</a>
+                <div id="clockWIB" >--:--:-- WIB</div>
+            </div>
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-slate-200 focus:outline-none ml-4">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800">
+            <a href="#hero" class="nav-link-mobile block py-2 px-4 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-400">Beranda</a>
+            <a href="#proyek" class="nav-link-mobile block py-2 px-4 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-400">Proyek</a>
+            <a href="#keahlian" class="nav-link-mobile block py-2 px-4 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-400">Keahlian</a>
+            <a href="#kontak" class="nav-link-mobile block py-2 px-4 text-sm text-slate-200 hover:bg-slate-700 hover:text-amber-400">Kontak</a>
+            <div id="clockWIBMobile" class="py-2 px-4 text-sm text-amber-400 font-['Orbitron'] text-center">--:--:-- WIB</div>
+        </div>
+    </nav>
+
+    <section id="hero" class="hero-bg h-screen flex items-center justify-center text-center pt-16">
+        <div class="bg-black/50 p-8 md:p-12 rounded-lg">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 font-['Orbitron']">
+                MUHAMMAD ABDULLAH HASYIM MUSADI
+            </h1>
+            <p class="text-xl md:text-2xl text-amber-400 mb-2">Mahasiswa Teknik Sipil</p>
+            <p class="text-lg md:text-xl text-slate-300 mb-8">Universitas Islam Riau - Angkatan 2021</p>
+            <a href="#proyek" class="btn-primary text-lg">Lihat Portofolio Saya</a>
+        </div>
+    </section>
+
+    <section id="tentang-saya" class="py-16 md:py-24 bg-slate-800">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-6 text-amber-400">Tentang Saya</h2>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+                Selamat datang di portofolio digital saya. Saya Muhammad Abdullah Hasyim Musadi, biasa dipanggil Sadi. Saya adalah seorang mahasiswa Teknik Sipil yang bersemangat dari Universitas Islam Riau, angkatan 2021. Saya memiliki minat besar dalam [Sebutkan Minat Spesifik, misal: desain struktur, manajemen konstruksi, rekayasa transportasi] dan selalu antusias untuk belajar hal baru serta menerapkan pengetahuan saya dalam proyek-proyek yang menantang dan bermanfaat. Website ini adalah etalase dari perjalanan akademis dan proyek yang telah saya kerjakan.
+            </p>
+        </div>
+    </section>
+
+    <section id="proyek" class="py-16 md:py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-amber-400">Proyek & Tugas Besar</h2>
+            <div id="project-slider-controls" class="relative">
+                <div id="project-viewport" class="w-full mx-auto">
+                    <div id="project-slider-inner">
+                        </div>
+                </div>
+                <button id="prevProjectBtn" class="slider-nav-button absolute top-1/2 left-0 md:-left-4 transform -translate-y-1/2">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="nextProjectBtn" class="slider-nav-button absolute top-1/2 right-0 md:-right-4 transform -translate-y-1/2">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="keahlian" class="py-16 md:py-24 bg-slate-800">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-amber-400">Keahlian Teknis</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+                <div class="bg-slate-700 p-6 rounded-lg shadow-md skill-item">
+                    <i class="fas fa-drafting-compass text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Desain Struktur</h3>
+                    <p class="text-slate-300">Analisis dan perancangan struktur bangunan gedung, jembatan, menggunakan standar SNI.</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg shadow-md skill-item">
+                    <i class="fas fa-hard-hat text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Manajemen Konstruksi</h3>
+                    <p class="text-slate-300">Perencanaan, penjadwalan, estimasi biaya, dan pengawasan proyek konstruksi.</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg shadow-md skill-item">
+                    <i class="fas fa-cogs text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Software Teknik Sipil</h3>
+                    <p class="text-slate-300">Menguasai AutoCAD, SAP2000, ETABS, Microsoft Project. [Sebutkan software lain jika ada]</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg shadow-md skill-item">
+                    <i class="fas fa-road text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Rekayasa Geoteknik</h3>
+                    <p class="text-slate-300">Analisis daya dukung tanah, stabilitas lereng, dan desain pondasi.</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg shadow-md skill-item">
+                    <i class="fas fa-water text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Rekayasa Sumber Daya Air</h3>
+                    <p class="text-slate-300">Perancangan sistem drainase, irigasi, dan bangunan air lainnya.</p>
+                </div>
+                <div class="bg-slate-700 p-6 rounded-lg shadow-md skill-item">
+                    <i class="fas fa-ruler-combined text-4xl text-amber-400 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Survei & Pemetaan</h3>
+                    <p class="text-slate-300">Penggunaan alat survei (Theodolite, Total Station) dan pengolahan data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-16 md:py-24 bg-slate-900">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-12 text-amber-400">Hubungi Saya</h2>
+            <div class="max-w-2xl mx-auto space-y-6">
+                <div class="contact-item flex items-center bg-slate-800 p-4 rounded-lg shadow-md">
+                    <a href="https://wa.me/628XXXXXXXXXX" target="_blank" class="flex items-center w-full text-slate-200 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-whatsapp text-3xl text-green-500 mr-4"></i>
+                        <span class="text-lg font-semibold mr-3">WhatsApp:</span>
+                        <span class="text-lg text-slate-300">+62 8XX-XXXX-XXXX (Ganti Nomor Anda)</span>
+                    </a>
+                </div>
+                <div class="contact-item flex items-center bg-slate-800 p-4 rounded-lg shadow-md">
+                     <a href="mailto:emailanda@example.com" class="flex items-center w-full text-slate-200 hover:text-amber-400 transition duration-300">
+                        <i class="fas fa-envelope text-3xl text-sky-500 mr-4"></i>
+                        <span class="text-lg font-semibold mr-3">Email:</span>
+                        <span class="text-lg text-slate-300">emailanda@example.com (Ganti Email Anda)</span>
+                    </a>
+                </div>
+                <div class="contact-item flex items-center bg-slate-800 p-4 rounded-lg shadow-md">
+                    <a href="https://linkedin.com/in/usernameanda" target="_blank" class="flex items-center w-full text-slate-200 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-linkedin text-3xl text-blue-500 mr-4"></i>
+                        <span class="text-lg font-semibold mr-3">LinkedIn:</span>
+                        <span class="text-lg text-slate-300">linkedin.com/in/usernameanda (Ganti Link Profil Anda)</span>
+                    </a>
+                </div>
+                 <div class="contact-item flex items-center bg-slate-800 p-4 rounded-lg shadow-md">
+                    <a href="https://instagram.com/usernameanda" target="_blank" class="flex items-center w-full text-slate-200 hover:text-amber-400 transition duration-300">
+                        <i class="fab fa-instagram text-3xl text-pink-500 mr-4"></i>
+                        <span class="text-lg font-semibold mr-3">Instagram:</span>
+                        <span class="text-lg text-slate-300">@usernameanda (Ganti Username Anda)</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-800 text-center py-8">
+        <p class="text-slate-400">&copy; <span id="currentYear"></span> Muhammad Abdullah Hasyim Musadi. Dibuat dengan <i class="fas fa-hard-hat text-amber-400"></i> semangat konstruksi.</p>
+    </footer>
+
+    <div id="projectModal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 opacity-0 invisible z-[100]">
+        <div class="modal-content bg-slate-800 p-6 md:p-8 rounded-lg shadow-xl max-w-2xl w-full transform scale-95">
+            <div class="flex justify-between items-center mb-4">
+                <h3 id="modalTitle" class="text-2xl md:text-3xl font-bold text-amber-400 font-['Orbitron']">Judul Proyek</h3>
+                <button id="closeModal" class="text-slate-300 hover:text-amber-400 text-2xl">&times;</button>
+            </div>
+            <img id="modalImage" src="" alt="Foto Proyek Detail" class="w-full h-64 object-cover rounded-md mb-4">
+            <div id="modalDescription" class="text-slate-300 mb-4 max-h-60 overflow-y-auto pr-2">
+                Deskripsi detail proyek...
+            </div>
+            <div class="mb-4">
+                <h4 class="text-lg font-semibold text-amber-300 mb-2">Teknologi/Metode yang Digunakan:</h4>
+                <ul id="modalTools" class="list-disc list-inside text-slate-300">
+                    </ul>
+            </div>
+             <div class="text-right">
+                <button id="closeModalButton" class="btn-secondary">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
